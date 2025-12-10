@@ -14,33 +14,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentVersion: 1.01
   subtype: kitchenchaos
-  lastShownTimestamp: 1765244313
+  lastShownTimestamp: 1765330725
   lastUpdateResponse:
     version: 1.01
     versionUrl: https://unitycodemonkey.com
-  checkedLastUpdateTimestamp: 1765244313
+  checkedLastUpdateTimestamp: 1765330725
   lastQOTDResponse:
-    questionId: 249
-    questionText: 'Is this valid code?
+    questionId: 250
+    questionText: 'Does this code have an error?
 
-      <p>Color? myColor = null;</p>'
+      <p>int myNewX = 10;</p>
+
+      <p>transform.position.x
+      = myNewX;</p>'
     answerA: Yes
-    answerB: No, myColor is a struct and cannot be null
-    answerC: 
+    answerB: No
+    answerC: Only if GameObject does not have a Transform component
     answerD: 
     answerE: 
-  lastQotdTimestamp: 1765244313
+  lastQotdTimestamp: 1765330725
   lastDynamicHeaderResponse:
     topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/unityBlackFridayAssetStoreDec25.png
     topText: Unity Asset Store is still having their BLACK FRIDAY deals!
     topLink: unityassetstore
     bottomText: My 10+ Years of C# Knowledge in 1 Course!
     bottomLink: csharpcourse
-  lastDynamicHeaderTimestamp: 1765244313
+  lastDynamicHeaderTimestamp: 1765330725
   websiteLatestMessage:
     text: <a href="https://cmonkey.co/freecourses">Check out all my FREE courses!
       Click here!</a>
-  websiteLatestMessageTimestamp: 1765244313
+  websiteLatestMessageTimestamp: 1765330725
   websiteLatestVideos:
     videos:
     - youTubeId: j7mZEZzNq9o
@@ -51,4 +54,4 @@ MonoBehaviour:
       title: Make your Console 10X BETTER with this Tool! (50% OFF!)
     - youTubeId: 2AG3POM9wOs
       title: What are Unity Building Blocks?
-  websiteLatestVideosTimestamp: 1765244313
+  websiteLatestVideosTimestamp: 1765330725
