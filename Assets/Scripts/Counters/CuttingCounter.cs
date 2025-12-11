@@ -4,6 +4,11 @@ using UnityEngine.EventSystems;
 
 public class CuttingCounter : BaseCounter, IHasProgress
 {
+    public static void ResetStaticData()
+    {
+        OnAnyCut = null;
+    }
+    
     public static event EventHandler OnAnyCut;
     
     public event EventHandler OnCut;
