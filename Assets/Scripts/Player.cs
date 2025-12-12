@@ -111,7 +111,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         float moveDistance = _moveSpeed * Time.deltaTime;
         float playerHigh = 2f;
         float playerRadius = .7f;
-        bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHigh,
+        bool canMove =  !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHigh,
             playerRadius, moveDir, moveDistance);
 
         if (!canMove)
@@ -119,7 +119,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
             //cannot move to toward Dir
             //Attempt only X moment
             Vector3 moveDirX = new Vector3(moveDir.x, 0f, 0f).normalized;
-            canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHigh,
+            canMove = (moveDir.x < -.5f || moveDir.x > +.5f) && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHigh,
                 playerRadius, moveDirX, moveDistance);
 
             if (canMove)
@@ -132,7 +132,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
                 //cannot move to X Dir
                 //Attempt only Z moment
                 Vector3 moveDirZ = new Vector3(0f, 0f, moveDir.z).normalized;
-                canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHigh,
+                canMove = (moveDir.z < -.5f || moveDir.z > +.5f) && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHigh,
                     playerRadius, moveDirZ, moveDistance);
                 
                 if (canMove)
