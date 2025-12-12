@@ -18,10 +18,9 @@ public class KitchenGameManager : MonoBehaviour
     }
 
     private State state;
-    private float waitingToStartTime = 0f;
     private float countdownToStart = 3f;
     private float gamePlayTimer;
-    private float gamePlayTimerMax = 10f;
+    private float gamePlayTimerMax = 60f;
     private bool isGamePaused = false;
 
     
@@ -34,7 +33,17 @@ public class KitchenGameManager : MonoBehaviour
     private void Start()
     {
         GameInput.Instance.OnPauseAction += GameInput_OnPauseAction;
-        
+        GameInput.Instance.OnInteractAction += GameInput_OnInteractAction;
+
+    }
+
+    private void GameInput_OnInteractAction(object sender, EventArgs e)
+    {
+        if (state == State.WaitingToStart)
+        {
+            state = State.CountdownToStart;
+            OnStateChanged?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     private void Update()
@@ -42,13 +51,8 @@ public class KitchenGameManager : MonoBehaviour
         switch (state)
         {
             case State.WaitingToStart:
-                waitingToStartTime -= Time.deltaTime;
-                if (waitingToStartTime <= 0)
-                {
-                    state = State.CountdownToStart;
-                    OnStateChanged?.Invoke(this, EventArgs.Empty);
-                }
                 break;
+            
             case State.CountdownToStart:
                 countdownToStart -= Time.deltaTime;
                 if (countdownToStart <= 0)
@@ -58,6 +62,7 @@ public class KitchenGameManager : MonoBehaviour
                     OnStateChanged?.Invoke(this, EventArgs.Empty);
                 }
                 break;
+            
             case State.GamePlaying:
                 gamePlayTimer -= Time.deltaTime;
                 if (gamePlayTimer <= 0)
@@ -66,6 +71,7 @@ public class KitchenGameManager : MonoBehaviour
                     OnStateChanged?.Invoke(this, EventArgs.Empty);
                 }
                 break;
+            
             case State.GameOver:
                 break;
         }
